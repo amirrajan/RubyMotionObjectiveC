@@ -1,0 +1,692 @@
+# 1 "CYAlert.m"
+# 1 "<built-in>" 1
+# 1 "<built-in>" 3
+# 359 "<built-in>" 3
+# 1 "<command line>" 1
+# 1 "<built-in>" 2
+# 1 "./build-iPhoneOS/CYAlert.pch" 1
+
+@import UIKit; /* clang -E: implicit import for "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h" */
+# 2 "<built-in>" 2
+# 1 "CYAlert.m" 2
+# 1 "./CYAlert.h" 1
+# 1 "./../Pods/Masonry/Masonry/Masonry.h" 1
+
+
+
+
+
+
+
+
+@import Foundation; /* clang -E: implicit import for "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.2.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h" */
+
+
+extern double MasonryVersionNumber;
+
+
+extern const unsigned char MasonryVersionString[];
+
+
+# 1 "./../Pods/Masonry/Masonry/MASUtilities.h" 1
+
+
+
+
+
+
+
+
+@import Foundation; /* clang -E: implicit import for "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.2.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h" */
+
+
+
+
+
+@import UIKit; /* clang -E: implicit import for "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h" */
+
+
+
+
+    typedef UILayoutPriority MASLayoutPriority;
+    static const MASLayoutPriority MASLayoutPriorityRequired = UILayoutPriorityRequired;
+    static const MASLayoutPriority MASLayoutPriorityDefaultHigh = UILayoutPriorityDefaultHigh;
+    static const MASLayoutPriority MASLayoutPriorityDefaultMedium = 500;
+    static const MASLayoutPriority MASLayoutPriorityDefaultLow = UILayoutPriorityDefaultLow;
+    static const MASLayoutPriority MASLayoutPriorityFittingSizeLevel = UILayoutPriorityFittingSizeLevel;
+# 76 "./../Pods/Masonry/Masonry/MASUtilities.h"
+static inline id _MASBoxValue(const char *type, ...) {
+    va_list v;
+    __builtin_va_start(v, type);
+    id obj = ((void *)0);
+    if (strcmp(type, @encode(id)) == 0) {
+        id actual = __builtin_va_arg(v, id);
+        obj = actual;
+    } else if (strcmp(type, @encode(CGPoint)) == 0) {
+        CGPoint actual = (CGPoint)__builtin_va_arg(v, CGPoint);
+        obj = [NSValue value:&actual withObjCType:type];
+    } else if (strcmp(type, @encode(CGSize)) == 0) {
+        CGSize actual = (CGSize)__builtin_va_arg(v, CGSize);
+        obj = [NSValue value:&actual withObjCType:type];
+    } else if (strcmp(type, @encode(UIEdgeInsets)) == 0) {
+        UIEdgeInsets actual = (UIEdgeInsets)__builtin_va_arg(v, UIEdgeInsets);
+        obj = [NSValue value:&actual withObjCType:type];
+    } else if (strcmp(type, @encode(double)) == 0) {
+        double actual = (double)__builtin_va_arg(v, double);
+        obj = [NSNumber numberWithDouble:actual];
+    } else if (strcmp(type, @encode(float)) == 0) {
+        float actual = (float)__builtin_va_arg(v, double);
+        obj = [NSNumber numberWithFloat:actual];
+    } else if (strcmp(type, @encode(int)) == 0) {
+        int actual = (int)__builtin_va_arg(v, int);
+        obj = [NSNumber numberWithInt:actual];
+    } else if (strcmp(type, @encode(long)) == 0) {
+        long actual = (long)__builtin_va_arg(v, long);
+        obj = [NSNumber numberWithLong:actual];
+    } else if (strcmp(type, @encode(long long)) == 0) {
+        long long actual = (long long)__builtin_va_arg(v, long long);
+        obj = [NSNumber numberWithLongLong:actual];
+    } else if (strcmp(type, @encode(short)) == 0) {
+        short actual = (short)__builtin_va_arg(v, int);
+        obj = [NSNumber numberWithShort:actual];
+    } else if (strcmp(type, @encode(char)) == 0) {
+        char actual = (char)__builtin_va_arg(v, int);
+        obj = [NSNumber numberWithChar:actual];
+    } else if (strcmp(type, @encode(_Bool)) == 0) {
+        _Bool actual = (_Bool)__builtin_va_arg(v, int);
+        obj = [NSNumber numberWithBool:actual];
+    } else if (strcmp(type, @encode(unsigned char)) == 0) {
+        unsigned char actual = (unsigned char)__builtin_va_arg(v, unsigned int);
+        obj = [NSNumber numberWithUnsignedChar:actual];
+    } else if (strcmp(type, @encode(unsigned int)) == 0) {
+        unsigned int actual = (unsigned int)__builtin_va_arg(v, unsigned int);
+        obj = [NSNumber numberWithUnsignedInt:actual];
+    } else if (strcmp(type, @encode(unsigned long)) == 0) {
+        unsigned long actual = (unsigned long)__builtin_va_arg(v, unsigned long);
+        obj = [NSNumber numberWithUnsignedLong:actual];
+    } else if (strcmp(type, @encode(unsigned long long)) == 0) {
+        unsigned long long actual = (unsigned long long)__builtin_va_arg(v, unsigned long long);
+        obj = [NSNumber numberWithUnsignedLongLong:actual];
+    } else if (strcmp(type, @encode(unsigned short)) == 0) {
+        unsigned short actual = (unsigned short)__builtin_va_arg(v, unsigned int);
+        obj = [NSNumber numberWithUnsignedShort:actual];
+    }
+    __builtin_va_end(v);
+    return obj;
+}
+# 18 "./../Pods/Masonry/Masonry/Masonry.h" 2
+# 1 "./../Pods/Masonry/Masonry/View+MASAdditions.h" 1
+# 10 "./../Pods/Masonry/Masonry/View+MASAdditions.h"
+# 1 "./../Pods/Masonry/Masonry/MASConstraintMaker.h" 1
+
+
+
+
+
+
+
+
+# 1 "./../Pods/Masonry/Masonry/MASConstraint.h" 1
+# 16 "./../Pods/Masonry/Masonry/MASConstraint.h"
+@interface MASConstraint : NSObject
+# 25 "./../Pods/Masonry/Masonry/MASConstraint.h"
+- (MASConstraint * (^)(UIEdgeInsets insets))insets;
+
+
+
+
+
+
+- (MASConstraint * (^)(CGFloat inset))inset;
+
+
+
+
+
+
+- (MASConstraint * (^)(CGSize offset))sizeOffset;
+
+
+
+
+
+
+- (MASConstraint * (^)(CGPoint offset))centerOffset;
+
+
+
+
+- (MASConstraint * (^)(CGFloat offset))offset;
+
+
+
+
+- (MASConstraint * (^)(NSValue *value))valueOffset;
+
+
+
+
+- (MASConstraint * (^)(CGFloat multiplier))multipliedBy;
+
+
+
+
+- (MASConstraint * (^)(CGFloat divider))dividedBy;
+
+
+
+
+- (MASConstraint * (^)(MASLayoutPriority priority))priority;
+
+
+
+
+- (MASConstraint * (^)(void))priorityLow;
+
+
+
+
+- (MASConstraint * (^)(void))priorityMedium;
+
+
+
+
+- (MASConstraint * (^)(void))priorityHigh;
+
+
+
+
+
+
+
+- (MASConstraint * (^)(id attr))equalTo;
+
+
+
+
+
+
+
+- (MASConstraint * (^)(id attr))greaterThanOrEqualTo;
+
+
+
+
+
+
+
+- (MASConstraint * (^)(id attr))lessThanOrEqualTo;
+
+
+
+
+- (MASConstraint *)with;
+
+
+
+
+- (MASConstraint *)and;
+
+
+
+
+- (MASConstraint *)left;
+- (MASConstraint *)top;
+- (MASConstraint *)right;
+- (MASConstraint *)bottom;
+- (MASConstraint *)leading;
+- (MASConstraint *)trailing;
+- (MASConstraint *)width;
+- (MASConstraint *)height;
+- (MASConstraint *)centerX;
+- (MASConstraint *)centerY;
+- (MASConstraint *)baseline;
+
+
+
+- (MASConstraint *)firstBaseline;
+- (MASConstraint *)lastBaseline;
+
+
+
+
+
+- (MASConstraint *)leftMargin;
+- (MASConstraint *)rightMargin;
+- (MASConstraint *)topMargin;
+- (MASConstraint *)bottomMargin;
+- (MASConstraint *)leadingMargin;
+- (MASConstraint *)trailingMargin;
+- (MASConstraint *)centerXWithinMargins;
+- (MASConstraint *)centerYWithinMargins;
+
+
+
+
+
+
+
+- (MASConstraint * (^)(id key))key;
+# 171 "./../Pods/Masonry/Masonry/MASConstraint.h"
+- (void)setInsets:(UIEdgeInsets)insets;
+
+
+
+
+
+
+- (void)setInset:(CGFloat)inset;
+
+
+
+
+
+
+- (void)setSizeOffset:(CGSize)sizeOffset;
+
+
+
+
+
+
+- (void)setCenterOffset:(CGPoint)centerOffset;
+
+
+
+
+- (void)setOffset:(CGFloat)offset;
+# 213 "./../Pods/Masonry/Masonry/MASConstraint.h"
+- (void)activate;
+
+
+
+
+- (void)deactivate;
+
+
+
+
+- (void)install;
+
+
+
+
+- (void)uninstall;
+
+@end
+# 257 "./../Pods/Masonry/Masonry/MASConstraint.h"
+@interface MASConstraint (AutoboxingSupport)
+
+
+
+
+
+- (MASConstraint * (^)(id attr))mas_equalTo;
+- (MASConstraint * (^)(id attr))mas_greaterThanOrEqualTo;
+- (MASConstraint * (^)(id attr))mas_lessThanOrEqualTo;
+
+
+
+
+- (MASConstraint * (^)(id offset))mas_offset;
+
+@end
+# 10 "./../Pods/Masonry/Masonry/MASConstraintMaker.h" 2
+
+
+typedef enum __attribute__((flag_enum,enum_extensibility(open))) MASAttribute : NSInteger MASAttribute; enum MASAttribute : NSInteger {
+    MASAttributeLeft = 1 << NSLayoutAttributeLeft,
+    MASAttributeRight = 1 << NSLayoutAttributeRight,
+    MASAttributeTop = 1 << NSLayoutAttributeTop,
+    MASAttributeBottom = 1 << NSLayoutAttributeBottom,
+    MASAttributeLeading = 1 << NSLayoutAttributeLeading,
+    MASAttributeTrailing = 1 << NSLayoutAttributeTrailing,
+    MASAttributeWidth = 1 << NSLayoutAttributeWidth,
+    MASAttributeHeight = 1 << NSLayoutAttributeHeight,
+    MASAttributeCenterX = 1 << NSLayoutAttributeCenterX,
+    MASAttributeCenterY = 1 << NSLayoutAttributeCenterY,
+    MASAttributeBaseline = 1 << NSLayoutAttributeBaseline,
+
+
+
+    MASAttributeFirstBaseline = 1 << NSLayoutAttributeFirstBaseline,
+    MASAttributeLastBaseline = 1 << NSLayoutAttributeLastBaseline,
+
+
+
+
+
+    MASAttributeLeftMargin = 1 << NSLayoutAttributeLeftMargin,
+    MASAttributeRightMargin = 1 << NSLayoutAttributeRightMargin,
+    MASAttributeTopMargin = 1 << NSLayoutAttributeTopMargin,
+    MASAttributeBottomMargin = 1 << NSLayoutAttributeBottomMargin,
+    MASAttributeLeadingMargin = 1 << NSLayoutAttributeLeadingMargin,
+    MASAttributeTrailingMargin = 1 << NSLayoutAttributeTrailingMargin,
+    MASAttributeCenterXWithinMargins = 1 << NSLayoutAttributeCenterXWithinMargins,
+    MASAttributeCenterYWithinMargins = 1 << NSLayoutAttributeCenterYWithinMargins,
+
+
+
+};
+
+
+
+
+
+
+@interface MASConstraintMaker : NSObject
+
+
+
+
+
+@property (nonatomic, strong, readonly) MASConstraint *left;
+@property (nonatomic, strong, readonly) MASConstraint *top;
+@property (nonatomic, strong, readonly) MASConstraint *right;
+@property (nonatomic, strong, readonly) MASConstraint *bottom;
+@property (nonatomic, strong, readonly) MASConstraint *leading;
+@property (nonatomic, strong, readonly) MASConstraint *trailing;
+@property (nonatomic, strong, readonly) MASConstraint *width;
+@property (nonatomic, strong, readonly) MASConstraint *height;
+@property (nonatomic, strong, readonly) MASConstraint *centerX;
+@property (nonatomic, strong, readonly) MASConstraint *centerY;
+@property (nonatomic, strong, readonly) MASConstraint *baseline;
+
+
+
+@property (nonatomic, strong, readonly) MASConstraint *firstBaseline;
+@property (nonatomic, strong, readonly) MASConstraint *lastBaseline;
+
+
+
+
+
+@property (nonatomic, strong, readonly) MASConstraint *leftMargin;
+@property (nonatomic, strong, readonly) MASConstraint *rightMargin;
+@property (nonatomic, strong, readonly) MASConstraint *topMargin;
+@property (nonatomic, strong, readonly) MASConstraint *bottomMargin;
+@property (nonatomic, strong, readonly) MASConstraint *leadingMargin;
+@property (nonatomic, strong, readonly) MASConstraint *trailingMargin;
+@property (nonatomic, strong, readonly) MASConstraint *centerXWithinMargins;
+@property (nonatomic, strong, readonly) MASConstraint *centerYWithinMargins;
+# 95 "./../Pods/Masonry/Masonry/MASConstraintMaker.h"
+@property (nonatomic, strong, readonly) MASConstraint *(^attributes)(MASAttribute attrs);
+
+
+
+
+
+
+@property (nonatomic, strong, readonly) MASConstraint *edges;
+
+
+
+
+
+
+@property (nonatomic, strong, readonly) MASConstraint *size;
+
+
+
+
+
+
+@property (nonatomic, strong, readonly) MASConstraint *center;
+
+
+
+
+@property (nonatomic, assign) BOOL updateExisting;
+
+
+
+
+@property (nonatomic, assign) BOOL removeExisting;
+# 135 "./../Pods/Masonry/Masonry/MASConstraintMaker.h"
+- (id)initWithView:(UIView *)view;
+
+
+
+
+
+
+- (NSArray *)install;
+
+- (MASConstraint * (^)(dispatch_block_t))group;
+
+@end
+# 11 "./../Pods/Masonry/Masonry/View+MASAdditions.h" 2
+# 1 "./../Pods/Masonry/Masonry/MASViewAttribute.h" 1
+# 15 "./../Pods/Masonry/Masonry/MASViewAttribute.h"
+@interface MASViewAttribute : NSObject
+
+
+
+
+@property (nonatomic, weak, readonly) UIView *view;
+
+
+
+
+@property (nonatomic, weak, readonly) id item;
+
+
+
+
+@property (nonatomic, assign, readonly) NSLayoutAttribute layoutAttribute;
+
+
+
+
+- (id)initWithView:(UIView *)view layoutAttribute:(NSLayoutAttribute)layoutAttribute;
+
+
+
+
+- (id)initWithView:(UIView *)view item:(id)item layoutAttribute:(NSLayoutAttribute)layoutAttribute;
+
+
+
+
+
+
+- (BOOL)isSizeAttribute;
+
+@end
+# 12 "./../Pods/Masonry/Masonry/View+MASAdditions.h" 2
+
+
+
+
+
+@interface UIView (MASAdditions)
+
+
+
+
+@property (nonatomic, strong, readonly) MASViewAttribute *mas_left;
+@property (nonatomic, strong, readonly) MASViewAttribute *mas_top;
+@property (nonatomic, strong, readonly) MASViewAttribute *mas_right;
+@property (nonatomic, strong, readonly) MASViewAttribute *mas_bottom;
+@property (nonatomic, strong, readonly) MASViewAttribute *mas_leading;
+@property (nonatomic, strong, readonly) MASViewAttribute *mas_trailing;
+@property (nonatomic, strong, readonly) MASViewAttribute *mas_width;
+@property (nonatomic, strong, readonly) MASViewAttribute *mas_height;
+@property (nonatomic, strong, readonly) MASViewAttribute *mas_centerX;
+@property (nonatomic, strong, readonly) MASViewAttribute *mas_centerY;
+@property (nonatomic, strong, readonly) MASViewAttribute *mas_baseline;
+@property (nonatomic, strong, readonly) MASViewAttribute *(^mas_attribute)(NSLayoutAttribute attr);
+
+
+
+@property (nonatomic, strong, readonly) MASViewAttribute *mas_firstBaseline;
+@property (nonatomic, strong, readonly) MASViewAttribute *mas_lastBaseline;
+
+
+
+
+
+@property (nonatomic, strong, readonly) MASViewAttribute *mas_leftMargin;
+@property (nonatomic, strong, readonly) MASViewAttribute *mas_rightMargin;
+@property (nonatomic, strong, readonly) MASViewAttribute *mas_topMargin;
+@property (nonatomic, strong, readonly) MASViewAttribute *mas_bottomMargin;
+@property (nonatomic, strong, readonly) MASViewAttribute *mas_leadingMargin;
+@property (nonatomic, strong, readonly) MASViewAttribute *mas_trailingMargin;
+@property (nonatomic, strong, readonly) MASViewAttribute *mas_centerXWithinMargins;
+@property (nonatomic, strong, readonly) MASViewAttribute *mas_centerYWithinMargins;
+
+
+
+
+
+@property (nonatomic, strong, readonly) MASViewAttribute *mas_safeAreaLayoutGuide __attribute__((availability(ios,introduced=11.0))) __attribute__((availability(tvos,introduced=11.0)));
+@property (nonatomic, strong, readonly) MASViewAttribute *mas_safeAreaLayoutGuideTop __attribute__((availability(ios,introduced=11.0))) __attribute__((availability(tvos,introduced=11.0)));
+@property (nonatomic, strong, readonly) MASViewAttribute *mas_safeAreaLayoutGuideBottom __attribute__((availability(ios,introduced=11.0))) __attribute__((availability(tvos,introduced=11.0)));
+@property (nonatomic, strong, readonly) MASViewAttribute *mas_safeAreaLayoutGuideLeft __attribute__((availability(ios,introduced=11.0))) __attribute__((availability(tvos,introduced=11.0)));
+@property (nonatomic, strong, readonly) MASViewAttribute *mas_safeAreaLayoutGuideRight __attribute__((availability(ios,introduced=11.0))) __attribute__((availability(tvos,introduced=11.0)));
+
+
+
+
+
+
+@property (nonatomic, strong) id mas_key;
+# 77 "./../Pods/Masonry/Masonry/View+MASAdditions.h"
+- (instancetype)mas_closestCommonSuperview:(UIView *)view;
+# 87 "./../Pods/Masonry/Masonry/View+MASAdditions.h"
+- (NSArray *)mas_makeConstraints:(void(__attribute__((noescape)) ^)(MASConstraintMaker *make))block;
+# 98 "./../Pods/Masonry/Masonry/View+MASAdditions.h"
+- (NSArray *)mas_updateConstraints:(void(__attribute__((noescape)) ^)(MASConstraintMaker *make))block;
+# 109 "./../Pods/Masonry/Masonry/View+MASAdditions.h"
+- (NSArray *)mas_remakeConstraints:(void(__attribute__((noescape)) ^)(MASConstraintMaker *make))block;
+
+@end
+# 19 "./../Pods/Masonry/Masonry/Masonry.h" 2
+# 1 "./../Pods/Masonry/Masonry/View+MASShorthandAdditions.h" 1
+# 20 "./../Pods/Masonry/Masonry/Masonry.h" 2
+# 1 "./../Pods/Masonry/Masonry/ViewController+MASAdditions.h" 1
+# 15 "./../Pods/Masonry/Masonry/ViewController+MASAdditions.h"
+@interface UIViewController (MASAdditions)
+
+
+
+
+@property (nonatomic, strong, readonly) MASViewAttribute *mas_topLayoutGuide;
+@property (nonatomic, strong, readonly) MASViewAttribute *mas_bottomLayoutGuide;
+@property (nonatomic, strong, readonly) MASViewAttribute *mas_topLayoutGuideTop;
+@property (nonatomic, strong, readonly) MASViewAttribute *mas_topLayoutGuideBottom;
+@property (nonatomic, strong, readonly) MASViewAttribute *mas_bottomLayoutGuideTop;
+@property (nonatomic, strong, readonly) MASViewAttribute *mas_bottomLayoutGuideBottom;
+
+
+@end
+# 21 "./../Pods/Masonry/Masonry/Masonry.h" 2
+# 1 "./../Pods/Masonry/Masonry/NSArray+MASAdditions.h" 1
+# 13 "./../Pods/Masonry/Masonry/NSArray+MASAdditions.h"
+typedef enum __attribute__((enum_extensibility(open))) MASAxisType : NSUInteger MASAxisType; enum MASAxisType : NSUInteger {
+    MASAxisTypeHorizontal,
+    MASAxisTypeVertical
+};
+
+@interface NSArray (MASAdditions)
+# 28 "./../Pods/Masonry/Masonry/NSArray+MASAdditions.h"
+- (NSArray *)mas_makeConstraints:(void (__attribute__((noescape)) ^)(MASConstraintMaker *make))block;
+# 39 "./../Pods/Masonry/Masonry/NSArray+MASAdditions.h"
+- (NSArray *)mas_updateConstraints:(void (__attribute__((noescape)) ^)(MASConstraintMaker *make))block;
+# 50 "./../Pods/Masonry/Masonry/NSArray+MASAdditions.h"
+- (NSArray *)mas_remakeConstraints:(void (__attribute__((noescape)) ^)(MASConstraintMaker *make))block;
+# 60 "./../Pods/Masonry/Masonry/NSArray+MASAdditions.h"
+- (void)mas_distributeViewsAlongAxis:(MASAxisType)axisType withFixedSpacing:(CGFloat)fixedSpacing leadSpacing:(CGFloat)leadSpacing tailSpacing:(CGFloat)tailSpacing;
+# 70 "./../Pods/Masonry/Masonry/NSArray+MASAdditions.h"
+- (void)mas_distributeViewsAlongAxis:(MASAxisType)axisType withFixedItemLength:(CGFloat)fixedItemLength leadSpacing:(CGFloat)leadSpacing tailSpacing:(CGFloat)tailSpacing;
+
+@end
+# 22 "./../Pods/Masonry/Masonry/Masonry.h" 2
+# 1 "./../Pods/Masonry/Masonry/NSArray+MASShorthandAdditions.h" 1
+# 23 "./../Pods/Masonry/Masonry/Masonry.h" 2
+
+# 1 "./../Pods/Masonry/Masonry/MASCompositeConstraint.h" 1
+# 15 "./../Pods/Masonry/Masonry/MASCompositeConstraint.h"
+@interface MASCompositeConstraint : MASConstraint
+# 24 "./../Pods/Masonry/Masonry/MASCompositeConstraint.h"
+- (id)initWithChildren:(NSArray *)children;
+
+@end
+# 25 "./../Pods/Masonry/Masonry/Masonry.h" 2
+
+# 1 "./../Pods/Masonry/Masonry/MASViewConstraint.h" 1
+# 11 "./../Pods/Masonry/Masonry/MASViewConstraint.h"
+# 1 "./../Pods/Masonry/Masonry/MASLayoutConstraint.h" 1
+# 15 "./../Pods/Masonry/Masonry/MASLayoutConstraint.h"
+@interface MASLayoutConstraint : NSLayoutConstraint
+
+
+
+
+@property (nonatomic, strong) id mas_key;
+
+@end
+# 12 "./../Pods/Masonry/Masonry/MASViewConstraint.h" 2
+
+
+
+
+
+
+@interface MASViewConstraint : MASConstraint <NSCopying>
+
+
+
+
+@property (nonatomic, strong, readonly) MASViewAttribute *firstViewAttribute;
+
+
+
+
+@property (nonatomic, strong, readonly) MASViewAttribute *secondViewAttribute;
+# 37 "./../Pods/Masonry/Masonry/MASViewConstraint.h"
+- (id)initWithFirstViewAttribute:(MASViewAttribute *)firstViewAttribute;
+# 46 "./../Pods/Masonry/Masonry/MASViewConstraint.h"
++ (NSArray *)installedConstraintsForView:(UIView *)view;
+
+@end
+# 27 "./../Pods/Masonry/Masonry/Masonry.h" 2
+
+
+# 1 "./../Pods/Masonry/Masonry/NSLayoutConstraint+MASDebugAdditions.h" 1
+# 14 "./../Pods/Masonry/Masonry/NSLayoutConstraint+MASDebugAdditions.h"
+@interface NSLayoutConstraint (MASDebugAdditions)
+
+@end
+# 30 "./../Pods/Masonry/Masonry/Masonry.h" 2
+# 2 "./CYAlert.h" 2
+@import UIKit; /* clang -E: implicit import for "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h" */
+
+@interface CYAlert : NSObject
+
++ (void)show;
++ (void)yolo;
+
+@end
+# 2 "CYAlert.m" 2
+
+@implementation CYAlert
+
+
+
++ (void)show {
+  NSLog(@"HI");
+}
+
++ (void)yolo {
+  UIView *superview = [[UIView alloc] init];
+  UIView *view1 = [[UIView alloc] init];
+
+  UIEdgeInsets padding = UIEdgeInsetsMake(10, 10, 10, 10);
+
+  [view1 mas_makeConstraints:^(MASConstraintMaker *make) {
+      make.edges.equalTo(superview).with.insets(padding);
+    }];
+}
+
+@end

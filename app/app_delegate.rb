@@ -10,7 +10,10 @@ class AppDelegate
     @window.rootViewController = navigationController
     @window.makeKeyAndVisible
 
-    CYAlert.show
+    superview = UIView.alloc.init
+    view1 = UIView.alloc.init
+    padding = UIEdgeInsetsMake(10, 10, 10, 10)
+    puts "#{padding}"
 
     true
   end

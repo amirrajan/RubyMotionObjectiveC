@@ -25,6 +25,9 @@ Motion::Project::App.setup do |app|
 
   # version for your app
   app.version = '1.0'
+  app.pods do
+    pod 'Masonry'
+  end
 
   # ===========================================================================================
   # 3. Set your deployment target (it's recommended that you at least target 10.0 and above).
@@ -108,4 +111,8 @@ def define_icon_defaults!(app)
       'CFBundleIconFiles' => ['AppIcon60x60', 'AppIcon76x76']
     }
   }
+end
+
+task :expand do
+  system '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -arch arm64 -isysroot "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.2.sdk" -F/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.2.sdk/System/Library/Frameworks -miphoneos-version-min=11.2 -O3 -fexceptions -fblocks -std=c99 -fmodules -g -fobjc-legacy-dispatch -fobjc-abi-version=2  -I. -c "./vendor/CYAlert/CYAlert.m" -E'
 end

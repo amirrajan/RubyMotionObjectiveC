@@ -1,30 +1,22 @@
-// CYAlert.m
 #import "CYAlert.h"
-#import <simd/simd.h>
 
 @implementation CYAlert
 
+#define SAY_HELLO_MESSAGE @"HI"
+
 + (void)show {
-    UIAlertView *alert = [[UIAlertView alloc] init];
-    alert.title = @"This is Objective-C";
-    alert.message = @"Mixing and matching!";
-    [alert addButtonWithTitle:@"OK"];
-    [alert show];
-    [alert release];
+  NSLog(SAY_HELLO_MESSAGE);
 }
 
-static const vector_float2 triangleVertices[] =
-{
-    {  1,  -1 },
-    { -1,  -1 },
-    {  0,   1 },
-};
-
-
 + (void)yolo {
-  vector_float2 first = triangleVertices[0];
-  float firstFirst = first[0];
-  NSLog(@"%f", firstFirst);
+  UIView *superview = [[UIView alloc] init];
+  UIView *view1 = [[UIView alloc] init];
+
+  UIEdgeInsets padding = UIEdgeInsetsMake(10, 10, 10, 10);
+
+  [view1 mas_makeConstraints:^(MASConstraintMaker *make) {
+      make.edges.equalTo(superview).with.insets(padding);
+    }];
 }
 
 @end
