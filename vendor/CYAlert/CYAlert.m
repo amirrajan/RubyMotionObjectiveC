@@ -3,7 +3,8 @@
 
 @implementation CYAlert
 
-+ (void)show {
++ (NSDictionary*) show: (NSDictionary*) args {
+    NSLog(@"%@", [args objectForKey: @"name"]);
     UIAlertView *alert = [[UIAlertView alloc] init];
     alert.title = @"This is Objective-C";
     alert.message = @"Mixing and matching!";
