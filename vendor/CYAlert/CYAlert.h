@@ -2,6 +2,6 @@
 
 @interface CYAlert : NSObject
 
-+ (void)show;
++ (NSDictionary*) show: (NSDictionary*) args;
 
 @end

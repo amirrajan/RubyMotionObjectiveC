@@ -10,7 +10,8 @@ class AppDelegate
     @window.rootViewController = navigationController
     @window.makeKeyAndVisible
 
-    CYAlert.show
+    dictionary = NSDictionary.alloc.initWithDictionary({ 'name' => 'Derek' })
+    CYAlert.show(dictionary)
 
     true
   end
