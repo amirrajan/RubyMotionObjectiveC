@@ -117,3 +117,25 @@ popd
 ```
 
 For more information about Asset Catalogs, refer to this link: https://developer.apple.com/library/content/documentation/Xcode/Reference/xcode_ref-Asset_Catalog_Format/
+
+# How to Call Objective-C Methods within RubyMotion #
+To call an Objective-C method within RubyMotion, follow these steps:
+1. Create a 'vendor' directory within the top-level directory of your project.
+2. Create a directory within the vendor directory with the title of your class.
+3. Create a header and implementation file within the directory you created in step 2
+(className.h and className.m, respectively).
+4. `#import` any frameworks you'll be needing at the top of the header file and describe your class.
+5. `#import` your header file at the top of your implementation file and define your class with its methods.
+6. Call your newly-created Objective-C method using the `className.methodName(args)` syntax within your `.rb` files.
+
+This is extremely helpful because it allows you to work with methods/types that aren't implemented in RubyMotion but are in Objective-C.
+You can call the method from RubyMotion, perform any computation needed within the method, then return RubyMotion-friendly data.
+
+One application you may find this useful in is when you find a method that RubyMotion doesn't have implemented yet.
+You can go to the BridgeSupport files of RubyMotion in `/Library/RubyMotion/data/ios/<your_ios_version_number>/BridgeSupport`.
+From there, you can search for your method or type using `ag -l <typeName>`, and you'll be shown the bridge support files
+for the frameworks that have that method/type. Open up these bridge support files using the text editor of your
+choosing and you can see what the method expects as arguments and its return type. 
+
+From here, simply implement your Objective-C method by utilizing the specifications you found in the bridge support files. Then call
+your new method from your RubyMotion code.
