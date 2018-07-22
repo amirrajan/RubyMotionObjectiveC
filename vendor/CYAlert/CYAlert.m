@@ -11,6 +11,7 @@
     [alert addButtonWithTitle:@"OK"];
     [alert show];
     [alert release];
+    return args;
 }
 
 @end
