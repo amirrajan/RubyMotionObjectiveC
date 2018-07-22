@@ -1,2 +1,8 @@
 language: objective-c
-os: osx
+env:
+  - TMP_DIR=./tmp
+before_install:
+  - sudo motion update && motion repo
+gemfile:
+  - Gemfile
+script: bundle exec rake spec
