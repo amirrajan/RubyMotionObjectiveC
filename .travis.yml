@@ -1,4 +1,5 @@
 language: objective-c
+osx_image: xcode10.2
 env:
   - TMP_DIR=./tmp  # For motion repo, so it doesn't attempt to use /tmp, to which it has no access
 before_install:
