@@ -4,8 +4,8 @@ osx_image: xcode10.2
 env:
   - TMP_DIR=./tmp  # For motion repo, so it doesn't attempt to use /tmp, to which it has no access
 before_install:
-  - wget https://s3.us-east-2.amazonaws.com/s3.rubymotion.com/RubyMotion-TravisCI.pkg
-  - sudo installer -pkg ./RubyMotion-TraviceCI.pkg -target /
+  - wget https://s3.us-east-2.amazonaws.com/s3.rubymotion.com/RubyMotion-TravisCI.pkg ./tmp
+  - sudo installer -pkg ./tmp/RubyMotion-TraviceCI.pkg -target /
   - eval "sudo motion activate $RUBYMOTION_LICENSE"
   - sudo motion update && motion repo
 gemfile:
