@@ -4,7 +4,7 @@ osx_image: xcode10.2
 env:
   - TMP_DIR=./tmp  # For motion repo, so it doesn't attempt to use /tmp, to which it has no access
 before_install:
-  - wget http://travisci.rubymotion.com/
+  - wget http://travisci.rubymotion.com/ -O RubyMotion-TravisCI.pkg
   - sudo installer -pkg RubyMotion-TravisCI.pkg -target /
   - cp -r /usr/lib/swift/*.dylib /Applications/Xcode.app/Contents/Frameworks/
   - touch /Applications/Xcode.app/Contents/Frameworks/.swift-5-staged
